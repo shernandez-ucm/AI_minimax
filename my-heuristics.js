@@ -35,7 +35,8 @@
     description: 'Lab starter: replace with your own evaluation.',
     fn: function (cells, me) {
       var f = features(cells, me);
-      return 3 * f.F[3] + f.F[2] - 3 * f.O[3] - f.O[2];
+      // TODO: return the formula above using f.F[k] and f.O[k].
+      return 0;
     }
   };
 })(typeof module === 'object' && module.exports ? require('./engine.js') : C4);

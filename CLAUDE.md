@@ -19,7 +19,7 @@ node bench-cli.js --games 40 --max-depth 6 --rr-depth 4 > RESULTS.md   # how RES
 # note: CLI defaults (games 20, max-depth 5, rr-depth 3) differ from the RESULTS.md run
 
 # Student lab runner (round robin of C4.HEURISTICS.mine vs three built-ins)
-node lab-run.js [depth=4] [gamesPerPair=40] [seed=1]
+node lab-run.js [depth=4] [gamesPerPair=40] [seed=1] [search=alphabeta|minimax]
 
 # Regenerate README diagrams from the engine
 node docs/make-diagrams.js

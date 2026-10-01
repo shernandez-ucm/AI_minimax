@@ -91,7 +91,7 @@ Two starter files are in the repo:
 | File | What it does |
 |---|---|
 | `my-heuristics.js` | Defines `C4.features(cells, me)` (returns the F<sub>k</sub>/O<sub>k</sub> counts) and registers `C4.HEURISTICS.mine`. Students edit this file. Works in both Node and the browser. |
-| `lab-run.js` | `node lab-run.js [depth=4] [gamesPerPair=40] [seed=1]` plays a round robin between `mine`, Windows + center, Cell table and Kaggle N-step, then prints the standings (about 2 s at the defaults). |
+| `lab-run.js` | `node lab-run.js [depth=4] [gamesPerPair=40] [seed=1] [search=alphabeta]` plays a round robin between `mine`, Windows + center, Cell table and Kaggle N-step, then prints the standings (about 2 s at the defaults). `search` is `alphabeta` or `minimax`: both pick the same moves, so only the ms/move column changes. |
 
 The part students change is the `fn` of the starter heuristic:
 
@@ -102,7 +102,8 @@ C4.HEURISTICS.mine = {
   description: 'Lab starter: replace with your own evaluation.',
   fn: function (cells, me) {
     var f = features(cells, me);
-    return 3 * f.F[3] + f.F[2] - 3 * f.O[3] - f.O[2];
+    // TODO: return the formula above using f.F[k] and f.O[k].
+    return 0;
   }
 };
 ```
@@ -158,7 +159,7 @@ row 5  . . X X O O .
 
 ### Lab 2: Your first evaluation function (about 90 min)
 
-1. Run `node lab-run.js` with the starter heuristic and record its score. Then predict, before measuring, how changing each weight will affect it.
+1. Replace `return 0;` in the starter heuristic with its `formula` (`h = 3·F₃ + F₂ − 3·O₃ − O₂`), run `node lab-run.js` and record its score. Then predict, before measuring, how changing each weight will affect it.
 2. Write a linear evaluation using only F<sub>k</sub>, O<sub>k</sub> (k = 1..3) and a center term. Change one weight at a time and log every experiment as (weights, score, games, seed).
 3. **Target:** score at least 55% against Windows + center at N=4 over 200+ games (`node lab-run.js 4 200`), then re-check it with a new seed.
 4. **Report:** your best weights, a table of experiments, and one paragraph on which change helped most and why you think it did.
