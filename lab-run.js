@@ -26,6 +26,7 @@ var pruning = search === 'alphabeta';
 Bench.tournament({
   agents: [
     { heuristic: 'mine', depth: depth, pruning: pruning, ordering: pruning },
+    { heuristic: 'bayesian', depth: depth, pruning: pruning, ordering: pruning },
     { heuristic: 'windowsCenter', depth: depth, pruning: pruning, ordering: pruning },
     { heuristic: 'cellTable', depth: depth, pruning: pruning, ordering: pruning },
     { heuristic: 'kaggle', depth: depth, pruning: pruning, ordering: pruning }
